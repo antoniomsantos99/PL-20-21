@@ -25,7 +25,6 @@ for linha in f.readlines():
         #Verifica se o argumento contem uma lista
         if re.search("\*",args[index]):
             #Cria uma lista com o array de valores
-            print(re.findall("\d+(?:\.\d+)?",listaelem[index]).group(1))
             listaValores = [float(x) for x in re.findall("\d+(?:\.\d+)?",listaelem[index])]
             #Agregação avg
             if re.search("avg$",args[index]):
