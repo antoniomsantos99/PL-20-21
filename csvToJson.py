@@ -1,11 +1,12 @@
 import json
 import re
 
-filePath = "D:\\DEV\\PL\\TP1\\test.csv"
+
+filePath = "test.csv"
 
 
 #Abre o ficheiro e inicializa a lista JSON
-f = open(filePath,"r")
+f = open(filePath,"r",encoding='utf8')
 res = []
 
 #Separa todos os argumentos delimitados por ; na primeira linha do csv removendo os \n se existirem
@@ -16,6 +17,10 @@ for linha in f.readlines():
 
     #Separa todos as caracteristicas dos elementos delimitadas por ; removendo os \n se existirem
     listaelem = [re.sub("\n","",x) if re.search("\n",x) else x for x in re.split(';',linha)]
+
+    #Se a quantidade de valores e a quantidade de argumentos for diferente atiramos um erro e o programa para
+    if(len(args) != len(listaelem)):
+        raise Exception("CSV Inválido! (Num de argumentos != Num de Valores)")
 
     #Cria um dicionario para o elemento (formato usado pelo json)
     elem = {}
@@ -42,7 +47,7 @@ for linha in f.readlines():
                 elem[re.sub("\*","_",args[index])] = listaValores[0]
             #Se não tiver nenhuma agregação
             else:
-                 elem[re.sub("\*","",args[index])] = listaValores
+                 elem[re.sub("\*\w*","",args[index])] = listaValores
         #Se não for uma lista
         else:
             elem[args[index]] = listaelem[index]
@@ -51,5 +56,5 @@ for linha in f.readlines():
     res.append(elem)
 
 #Escreve o json num novo ficheiro
-with open(filePath.replace("csv","json"), 'w') as outfile:
-    json.dump(res, outfile,indent=2)
+with open(filePath.replace("csv","json"), 'w', encoding='utf-8') as jsonFile:
+    json.dump(res, jsonFile,indent=2,ensure_ascii=False)
