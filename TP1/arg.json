@@ -1,0 +1,56 @@
+[
+  {
+    "nome": "Usain Bolt",
+    "posicoes_min": 1.0,
+    "posicoes_max": 2.0,
+    "tempos_avg": 9.977500000000001,
+    "tempos": [
+      9.58,
+      9.63,
+      10.0,
+      10.7
+    ],
+    "tempos_min": 9.58
+  },
+  {
+    "nome": "Francis Obikwelu",
+    "posicoes_min": 1.0,
+    "posicoes_max": 4.0,
+    "tempos_avg": 24.45,
+    "tempos": [
+      9.86,
+      10.1,
+      10.84,
+      67.0
+    ],
+    "tempos_min": 9.86
+  },
+  {
+    "nome": "Yohan Blake",
+    "posicoes_min": 1.0,
+    "posicoes_max": 4.0,
+    "tempos_avg": 10.562000000000001,
+    "tempos": [
+      9.69,
+      10.3,
+      10.53,
+      11.09,
+      11.2
+    ],
+    "tempos_min": 9.69
+  },
+  {
+    "nome": "Justin Gatlin",
+    "posicoes_min": 2.0,
+    "posicoes_max": 5.0,
+    "tempos_avg": 11.492,
+    "tempos": [
+      10.14,
+      11.32,
+      11.65,
+      12.04,
+      12.31
+    ],
+    "tempos_min": 10.14
+  }
+]
