@@ -15,19 +15,31 @@ import sys
 
 # List of token names.   This is always required
 tokens = (
-    'number', 'id', 'DUMP', 'ATR'
+    'number', 'id', 'DUMP', 'ATR', 'float', 'string'
 )
 # Literals
-literals = ['+', '-', '*', '/', '(', ')', '?', '!']
+literals = ['+', '-', '*', '/', '(', ')', '?', '!','<','>','[',']',',']
 
 t_DUMP = r'!!'
 t_ATR = r'='
  
+
+# A regular expression rule with some action code
+def t_float(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)    
+    return t
+
 # A regular expression rule with some action code
 def t_number(t):
     r'\d+'
     t.value = int(t.value)    
     return t
+
+def t_string(t):
+    r'[a-z]+'
+    return t
+
 
 def t_id(t):
     r'[a-z]'
