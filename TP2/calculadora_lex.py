@@ -1,28 +1,12 @@
-# ------------------------------------------------------------
-# calclex.py
-#
-# tokenizer for a simple expression evaluator for:
-#   1. numbers
-#   2. operations: +,-,*,/
-#   3. grouping: ( ) 
-#   4. registers: a..z
-#   5. read: ?
-#   6. print !
-# 
-# ------------------------------------------------------------
 import ply.lex as lex
 import sys
 
 # List of token names.   This is always required
 tokens = (
-    'number', 'id', 'DUMP', 'ATR', 'float', 'string'
+    'int', 'id','float', 'string', 'and', 'or','if'
 )
 # Literals
-literals = ['+', '-', '*', '/', '(', ')', '?', '!','<','>','[',']',',']
-
-t_DUMP = r'!!'
-t_ATR = r'='
- 
+literals = ['+', '-', '*', '/', '(', ')', '?', '!','<','>','[',']',',','{','}','=','$']
 
 # A regular expression rule with some action code
 def t_float(t):
@@ -30,16 +14,28 @@ def t_float(t):
     t.value = float(t.value)    
     return t
 
+def t_and(t):
+    r'and'    
+    return t.value
+
+def t_if(t):
+    r'if'    
+    return t.value
+
+def t_or(t):
+    r'or'    
+    return t.value
+
 # A regular expression rule with some action code
-def t_number(t):
+def t_int(t):
     r'\d+'
     t.value = int(t.value)    
     return t
 
 def t_string(t):
-    r'[a-z]+'
+    r'"[\w ]{2,}"'
+    t.value = t.value[1:-1] 
     return t
-
 
 def t_id(t):
     r'[a-z]'
