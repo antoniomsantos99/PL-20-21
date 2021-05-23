@@ -9,6 +9,7 @@ from calculadora_lex import tokens
 from calculadora_lex import literals
 
 varDic = dict({})
+arrayDic = dict({})
 stackPos = 0
 label = 0
 
@@ -31,7 +32,7 @@ Atr : id = Exp
 Exp : Ramalho
 
 
-
+if(1==1){if(2==2){c=4}}else{c=3}
 '''
 
 def p_Main(p):
@@ -51,14 +52,24 @@ def p_Instrucao_Atrib(p):
     p[0] = p[1]
 
 def p_Instrucao_Cond(p):
-    "Instrucao : '?' '(' Conds ')' '{' Instrucoes '}'"
+    "Instrucao : if '(' Conds ')' '{' Instrucoes '}'"
     global stackPos
     global label
 
-    print(p[3])
-
-    p[0] = "{0}\nJZ\nEND{1}\n{2}\nEND{1}:".format(p[3],label,p[6])
+    p[0] = "{0}\nJZ END{1}\n{2}\nEND{1}:".format(p[3],label,p[6])
     label+=1
+
+def p_Instrucao_Cond_else(p):
+    "Instrucao : if '(' Conds ')' '{' Instrucoes '}' else '{' Instrucoes '}'"
+    global stackPos
+    global label
+
+    p[0] = "{0}\nJZ ELSE{1}\n{2}\nJUMP END{1}\nELSE{1}:\n{3}\nEND{1}:".format(p[3],label,p[6],p[10])
+    label+=1
+
+def p_Conds_Cond_and(p):
+    "Conds : Conds and Cond"
+    p[0] = "{0}\nPUSHI {1}\nADD\n".format(p[1],p[3])
 
 def p_Conds_Cond(p):
     "Conds : Cond"
@@ -101,8 +112,6 @@ def p_Cond_different(p):
     p[0] = "{0}\n{1}\nEQUAL\nNOT".format(str(p[1]),str(p[4]))
     stackPos-=2
 
-
-
 def p_Atr_id(p):
     "Atr : id '=' Exp"
     if p[1] not in varDic:
@@ -111,6 +120,30 @@ def p_Atr_id(p):
         p[0] = str(p[3])
     else:
         pass
+
+def p_decl_Array(p):
+    "Atr : array '(' id ',' int ')'"
+    global stackPos
+    p[0] = "PUSHN {0}\n".format(p[5])
+    arrayDic[p[3]] = [p[5],stackPos]
+    stackPos+= int(p[5])
+
+
+def p_Atr_int_Array(p):
+    "Atr : id '[' int ']' '=' Exp"
+    global stackPos
+
+    p[0] = "PUSHGP\nPUSHI {1}\nPADD\nPUSHI {0}\n{2}\nSTOREN".format(p[3],arrayDic[p[1]][1],p[6])
+    arrayDic[p[1]] = [p[3],stackPos]
+    stackPos+= int(p[3])
+
+def p_Atr_id_Array(p):
+    "Atr : id '[' id ']' '=' Exp"
+    global stackPos
+    p[0] = "PUSHGP\nPUSHN {1}\nPADD\nPUSHN {0}\n{2}\nSTOREN".format(varDic[p[3]],arrayDic[p[1]][1],p[6])
+    arrayDic[p[1]] = [p[3],stackPos]
+    stackPos -= 1    
+
 
 def p_Atr_print_str(p):
      "Atr : '$' string"

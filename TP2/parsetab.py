@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = "and float id if int or stringMain : InstrucoesInstrucoes : Instrucoes InstrucaoInstrucoes : InstrucaoInstrucao : AtrInstrucao : '?' '(' Conds ')' '{' Instrucoes '}'Conds : CondCond : Exp '<' ExpCond : Exp '>' ExpCond : Exp '=' '=' ExpCond : Exp '<' '=' ExpCond : Exp '>' '=' ExpCond : Exp '!' '=' ExpAtr : id '=' ExpAtr : '$' stringAtr : '$' intAtr : '$'Exp : Exp '+' TermTerm : Term '-' FactorExp : TermTerm : Term '*' FactorTerm : Term '/' FactorTerm : FactorFactor : idFactor : intFactor : floatFactor : string"
+_lr_signature = "and array else float id if int or stringMain : InstrucoesInstrucoes : Instrucoes InstrucaoInstrucoes : InstrucaoInstrucao : AtrInstrucao : if '(' Conds ')' '{' Instrucoes '}'Instrucao : if '(' Conds ')' '{' Instrucoes '}' else '{' Instrucoes '}'Conds : Conds and CondConds : CondCond : Exp '<' ExpCond : Exp '>' ExpCond : Exp '=' '=' ExpCond : Exp '<' '=' ExpCond : Exp '>' '=' ExpCond : Exp '!' '=' ExpAtr : id '=' ExpAtr : array '(' id ',' int ')'Atr : id '[' int ']' '=' ExpAtr : id '[' id ']' '=' ExpAtr : '$' stringAtr : '$' intAtr : '$'Exp : Exp '+' TermTerm : Term '-' FactorExp : TermTerm : Term '*' FactorTerm : Term '/' FactorTerm : FactorFactor : idFactor : intFactor : floatFactor : string"
     
-_lr_action_items = {'?':([0,2,3,4,7,8,11,12,16,17,18,19,20,21,22,32,39,40,41,42,43,48,],[5,5,-3,-4,-16,-2,-14,-15,-19,-22,-23,-24,-25,-26,-13,5,-17,-18,-20,-21,5,-5,]),'id':([0,2,3,4,7,8,9,10,11,12,16,17,18,19,20,21,22,24,25,28,29,30,31,32,34,36,37,38,39,40,41,42,43,48,],[6,6,-3,-4,-16,-2,18,18,-14,-15,-19,-22,-23,-24,-25,-26,-13,18,18,18,18,18,18,6,18,18,18,18,-17,-18,-20,-21,6,-5,]),'$':([0,2,3,4,7,8,11,12,16,17,18,19,20,21,22,32,39,40,41,42,43,48,],[7,7,-3,-4,-16,-2,-14,-15,-19,-22,-23,-24,-25,-26,-13,7,-17,-18,-20,-21,7,-5,]),'$end':([1,2,3,4,7,8,11,12,16,17,18,19,20,21,22,39,40,41,42,48,],[0,-1,-3,-4,-16,-2,-14,-15,-19,-22,-23,-24,-25,-26,-13,-17,-18,-20,-21,-5,]),'}':([3,4,7,8,11,12,16,17,18,19,20,21,22,39,40,41,42,43,48,],[-3,-4,-16,-2,-14,-15,-19,-22,-23,-24,-25,-26,-13,-17,-18,-20,-21,48,-5,]),'(':([5,],[9,]),'=':([6,15,16,17,18,19,20,21,24,25,26,27,39,40,41,42,],[10,26,-19,-22,-23,-24,-25,-26,34,36,37,38,-17,-18,-20,-21,]),'string':([7,9,10,24,25,28,29,30,31,34,36,37,38,],[11,21,21,21,21,21,21,21,21,21,21,21,21,]),'int':([7,9,10,24,25,28,29,30,31,34,36,37,38,],[12,19,19,19,19,19,19,19,19,19,19,19,19,]),'float':([9,10,24,25,28,29,30,31,34,36,37,38,],[20,20,20,20,20,20,20,20,20,20,20,20,]),')':([13,14,16,17,18,19,20,21,33,35,39,40,41,42,44,45,46,47,],[23,-6,-19,-22,-23,-24,-25,-26,-7,-8,-17,-18,-20,-21,-10,-11,-9,-12,]),'<':([15,16,17,18,19,20,21,39,40,41,42,],[24,-19,-22,-23,-24,-25,-26,-17,-18,-20,-21,]),'>':([15,16,17,18,19,20,21,39,40,41,42,],[25,-19,-22,-23,-24,-25,-26,-17,-18,-20,-21,]),'!':([15,16,17,18,19,20,21,39,40,41,42,],[27,-19,-22,-23,-24,-25,-26,-17,-18,-20,-21,]),'+':([15,16,17,18,19,20,21,22,33,35,39,40,41,42,44,45,46,47,],[28,-19,-22,-23,-24,-25,-26,28,28,28,-17,-18,-20,-21,28,28,28,28,]),'-':([16,17,18,19,20,21,39,40,41,42,],[29,-22,-23,-24,-25,-26,29,-18,-20,-21,]),'*':([16,17,18,19,20,21,39,40,41,42,],[30,-22,-23,-24,-25,-26,30,-18,-20,-21,]),'/':([16,17,18,19,20,21,39,40,41,42,],[31,-22,-23,-24,-25,-26,31,-18,-20,-21,]),'{':([23,],[32,]),}
+_lr_action_items = {'if':([0,2,3,4,8,9,14,15,19,20,21,22,23,24,25,42,50,51,52,53,57,62,63,64,65,67,68,69,],[5,5,-3,-4,-21,-2,-19,-20,-24,-27,-28,-29,-30,-31,-15,5,-22,-23,-25,-26,5,-18,-17,-16,-5,5,5,-6,]),'id':([0,2,3,4,8,9,10,11,12,13,14,15,19,20,21,22,23,24,25,30,31,32,35,36,37,38,42,45,47,48,49,50,51,52,53,54,55,57,62,63,64,65,67,68,69,],[6,6,-3,-4,-21,-2,21,21,26,28,-19,-20,-24,-27,-28,-29,-30,-31,-15,21,21,21,21,21,21,21,6,21,21,21,21,-22,-23,-25,-26,21,21,6,-18,-17,-16,-5,6,6,-6,]),'array':([0,2,3,4,8,9,14,15,19,20,21,22,23,24,25,42,50,51,52,53,57,62,63,64,65,67,68,69,],[7,7,-3,-4,-21,-2,-19,-20,-24,-27,-28,-29,-30,-31,-15,7,-22,-23,-25,-26,7,-18,-17,-16,-5,7,7,-6,]),'$':([0,2,3,4,8,9,14,15,19,20,21,22,23,24,25,42,50,51,52,53,57,62,63,64,65,67,68,69,],[8,8,-3,-4,-21,-2,-19,-20,-24,-27,-28,-29,-30,-31,-15,8,-22,-23,-25,-26,8,-18,-17,-16,-5,8,8,-6,]),'$end':([1,2,3,4,8,9,14,15,19,20,21,22,23,24,25,50,51,52,53,62,63,64,65,69,],[0,-1,-3,-4,-21,-2,-19,-20,-24,-27,-28,-29,-30,-31,-15,-22,-23,-25,-26,-18,-17,-16,-5,-6,]),'}':([3,4,8,9,14,15,19,20,21,22,23,24,25,50,51,52,53,57,62,63,64,65,68,69,],[-3,-4,-21,-2,-19,-20,-24,-27,-28,-29,-30,-31,-15,-22,-23,-25,-26,65,-18,-17,-16,-5,69,-6,]),'(':([5,7,],[10,13,]),'=':([6,18,19,20,21,22,23,24,31,32,33,34,39,40,50,51,52,53,],[11,33,-24,-27,-28,-29,-30,-31,45,47,48,49,54,55,-22,-23,-25,-26,]),'[':([6,],[12,]),'string':([8,10,11,30,31,32,35,36,37,38,45,47,48,49,54,55,],[14,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,]),'int':([8,10,11,12,30,31,32,35,36,37,38,41,45,47,48,49,54,55,],[15,22,22,27,22,22,22,22,22,22,22,56,22,22,22,22,22,22,]),'float':([10,11,30,31,32,35,36,37,38,45,47,48,49,54,55,],[23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,]),')':([16,17,19,20,21,22,23,24,43,44,46,50,51,52,53,56,58,59,60,61,],[29,-8,-24,-27,-28,-29,-30,-31,-7,-9,-10,-22,-23,-25,-26,64,-12,-13,-11,-14,]),'and':([16,17,19,20,21,22,23,24,43,44,46,50,51,52,53,58,59,60,61,],[30,-8,-24,-27,-28,-29,-30,-31,-7,-9,-10,-22,-23,-25,-26,-12,-13,-11,-14,]),'<':([18,19,20,21,22,23,24,50,51,52,53,],[31,-24,-27,-28,-29,-30,-31,-22,-23,-25,-26,]),'>':([18,19,20,21,22,23,24,50,51,52,53,],[32,-24,-27,-28,-29,-30,-31,-22,-23,-25,-26,]),'!':([18,19,20,21,22,23,24,50,51,52,53,],[34,-24,-27,-28,-29,-30,-31,-22,-23,-25,-26,]),'+':([18,19,20,21,22,23,24,25,44,46,50,51,52,53,58,59,60,61,62,63,],[35,-24,-27,-28,-29,-30,-31,35,35,35,-22,-23,-25,-26,35,35,35,35,35,35,]),'-':([19,20,21,22,23,24,50,51,52,53,],[36,-27,-28,-29,-30,-31,36,-23,-25,-26,]),'*':([19,20,21,22,23,24,50,51,52,53,],[37,-27,-28,-29,-30,-31,37,-23,-25,-26,]),'/':([19,20,21,22,23,24,50,51,52,53,],[38,-27,-28,-29,-30,-31,38,-23,-25,-26,]),']':([26,27,],[39,40,]),',':([28,],[41,]),'{':([29,66,],[42,67,]),'else':([65,],[66,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Main':([0,],[1,]),'Instrucoes':([0,32,],[2,43,]),'Instrucao':([0,2,32,43,],[3,8,3,8,]),'Atr':([0,2,32,43,],[4,4,4,4,]),'Conds':([9,],[13,]),'Cond':([9,],[14,]),'Exp':([9,10,24,25,34,36,37,38,],[15,22,33,35,44,45,46,47,]),'Term':([9,10,24,25,28,34,36,37,38,],[16,16,16,16,39,16,16,16,16,]),'Factor':([9,10,24,25,28,29,30,31,34,36,37,38,],[17,17,17,17,17,40,41,42,17,17,17,17,]),}
+_lr_goto_items = {'Main':([0,],[1,]),'Instrucoes':([0,42,67,],[2,57,68,]),'Instrucao':([0,2,42,57,67,68,],[3,9,3,9,3,9,]),'Atr':([0,2,42,57,67,68,],[4,4,4,4,4,4,]),'Conds':([10,],[16,]),'Cond':([10,30,],[17,43,]),'Exp':([10,11,30,31,32,45,47,48,49,54,55,],[18,25,18,44,46,58,59,60,61,62,63,]),'Term':([10,11,30,31,32,35,45,47,48,49,54,55,],[19,19,19,19,19,50,19,19,19,19,19,19,]),'Factor':([10,11,30,31,32,35,36,37,38,45,47,48,49,54,55,],[20,20,20,20,20,20,51,52,53,20,20,20,20,20,20,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,30 +27,35 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Main","S'",1,None,None,None),
-  ('Main -> Instrucoes','Main',1,'p_Main','calculadora_yacc.py',38),
-  ('Instrucoes -> Instrucoes Instrucao','Instrucoes',2,'p_Instrucoes_Instrucoes','calculadora_yacc.py',42),
-  ('Instrucoes -> Instrucao','Instrucoes',1,'p_Instrucoes_Instrucao','calculadora_yacc.py',46),
-  ('Instrucao -> Atr','Instrucao',1,'p_Instrucao_Atrib','calculadora_yacc.py',50),
-  ('Instrucao -> ? ( Conds ) { Instrucoes }','Instrucao',7,'p_Instrucao_Cond','calculadora_yacc.py',54),
-  ('Conds -> Cond','Conds',1,'p_Conds_Cond','calculadora_yacc.py',64),
-  ('Cond -> Exp < Exp','Cond',3,'p_Cond_less','calculadora_yacc.py',69),
-  ('Cond -> Exp > Exp','Cond',3,'p_Cond_more','calculadora_yacc.py',75),
-  ('Cond -> Exp = = Exp','Cond',4,'p_Cond_equals','calculadora_yacc.py',81),
-  ('Cond -> Exp < = Exp','Cond',4,'p_Cond_less_equals','calculadora_yacc.py',87),
-  ('Cond -> Exp > = Exp','Cond',4,'p_Cond_more_equals','calculadora_yacc.py',93),
-  ('Cond -> Exp ! = Exp','Cond',4,'p_Cond_different','calculadora_yacc.py',99),
-  ('Atr -> id = Exp','Atr',3,'p_Atr_id','calculadora_yacc.py',107),
-  ('Atr -> $ string','Atr',2,'p_Atr_print_str','calculadora_yacc.py',116),
-  ('Atr -> $ int','Atr',2,'p_Atr_print_int','calculadora_yacc.py',122),
-  ('Atr -> $','Atr',1,'p_Atr_read','calculadora_yacc.py',128),
-  ('Exp -> Exp + Term','Exp',3,'p_Exp_add','calculadora_yacc.py',135),
-  ('Term -> Term - Factor','Term',3,'p_Exp_sub','calculadora_yacc.py',141),
-  ('Exp -> Term','Exp',1,'p_Exp_term','calculadora_yacc.py',147),
-  ('Term -> Term * Factor','Term',3,'p_Term_mul','calculadora_yacc.py',151),
-  ('Term -> Term / Factor','Term',3,'p_Term_div','calculadora_yacc.py',157),
-  ('Term -> Factor','Term',1,'p_Term_factor','calculadora_yacc.py',164),
-  ('Factor -> id','Factor',1,'p_Factor_id','calculadora_yacc.py',170),
-  ('Factor -> int','Factor',1,'p_Factor_int','calculadora_yacc.py',176),
-  ('Factor -> float','Factor',1,'p_Factor_float','calculadora_yacc.py',183),
-  ('Factor -> string','Factor',1,'p_Factor_string','calculadora_yacc.py',189),
+  ('Main -> Instrucoes','Main',1,'p_Main','calculadora_yacc.py',39),
+  ('Instrucoes -> Instrucoes Instrucao','Instrucoes',2,'p_Instrucoes_Instrucoes','calculadora_yacc.py',43),
+  ('Instrucoes -> Instrucao','Instrucoes',1,'p_Instrucoes_Instrucao','calculadora_yacc.py',47),
+  ('Instrucao -> Atr','Instrucao',1,'p_Instrucao_Atrib','calculadora_yacc.py',51),
+  ('Instrucao -> if ( Conds ) { Instrucoes }','Instrucao',7,'p_Instrucao_Cond','calculadora_yacc.py',55),
+  ('Instrucao -> if ( Conds ) { Instrucoes } else { Instrucoes }','Instrucao',11,'p_Instrucao_Cond_else','calculadora_yacc.py',63),
+  ('Conds -> Conds and Cond','Conds',3,'p_Conds_Cond_and','calculadora_yacc.py',71),
+  ('Conds -> Cond','Conds',1,'p_Conds_Cond','calculadora_yacc.py',75),
+  ('Cond -> Exp < Exp','Cond',3,'p_Cond_less','calculadora_yacc.py',80),
+  ('Cond -> Exp > Exp','Cond',3,'p_Cond_more','calculadora_yacc.py',86),
+  ('Cond -> Exp = = Exp','Cond',4,'p_Cond_equals','calculadora_yacc.py',92),
+  ('Cond -> Exp < = Exp','Cond',4,'p_Cond_less_equals','calculadora_yacc.py',98),
+  ('Cond -> Exp > = Exp','Cond',4,'p_Cond_more_equals','calculadora_yacc.py',104),
+  ('Cond -> Exp ! = Exp','Cond',4,'p_Cond_different','calculadora_yacc.py',110),
+  ('Atr -> id = Exp','Atr',3,'p_Atr_id','calculadora_yacc.py',116),
+  ('Atr -> array ( id , int )','Atr',6,'p_decl_Array','calculadora_yacc.py',125),
+  ('Atr -> id [ int ] = Exp','Atr',6,'p_Atr_int_Array','calculadora_yacc.py',133),
+  ('Atr -> id [ id ] = Exp','Atr',6,'p_Atr_id_Array','calculadora_yacc.py',141),
+  ('Atr -> $ string','Atr',2,'p_Atr_print_str','calculadora_yacc.py',149),
+  ('Atr -> $ int','Atr',2,'p_Atr_print_int','calculadora_yacc.py',155),
+  ('Atr -> $','Atr',1,'p_Atr_read','calculadora_yacc.py',161),
+  ('Exp -> Exp + Term','Exp',3,'p_Exp_add','calculadora_yacc.py',168),
+  ('Term -> Term - Factor','Term',3,'p_Exp_sub','calculadora_yacc.py',174),
+  ('Exp -> Term','Exp',1,'p_Exp_term','calculadora_yacc.py',180),
+  ('Term -> Term * Factor','Term',3,'p_Term_mul','calculadora_yacc.py',184),
+  ('Term -> Term / Factor','Term',3,'p_Term_div','calculadora_yacc.py',190),
+  ('Term -> Factor','Term',1,'p_Term_factor','calculadora_yacc.py',197),
+  ('Factor -> id','Factor',1,'p_Factor_id','calculadora_yacc.py',203),
+  ('Factor -> int','Factor',1,'p_Factor_int','calculadora_yacc.py',209),
+  ('Factor -> float','Factor',1,'p_Factor_float','calculadora_yacc.py',216),
+  ('Factor -> string','Factor',1,'p_Factor_string','calculadora_yacc.py',222),
 ]

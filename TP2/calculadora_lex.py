@@ -3,7 +3,7 @@ import sys
 
 # List of token names.   This is always required
 tokens = (
-    'int', 'id','float', 'string', 'and', 'or','if'
+    'int', 'id','float', 'string', 'and', 'or','if','else', 'array'
 )
 # Literals
 literals = ['+', '-', '*', '/', '(', ')', '?', '!','<','>','[',']',',','{','}','=','$']
@@ -16,15 +16,23 @@ def t_float(t):
 
 def t_and(t):
     r'and'    
-    return t.value
+    return t
 
 def t_if(t):
     r'if'    
-    return t.value
+    return t
+
+def t_else(t):
+    r'else'    
+    return t
 
 def t_or(t):
     r'or'    
-    return t.value
+    return t
+
+def t_array(t):
+    r'array'    
+    return t
 
 # A regular expression rule with some action code
 def t_int(t):
