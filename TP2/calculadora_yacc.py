@@ -51,6 +51,12 @@ def p_Instrucao_Atrib(p):
     "Instrucao : Atr"
     p[0] = p[1]
 
+def p_Instrucao_loop(p):
+    "Instrucao : repeat '{' Instrucoes '}' until '(' Conds ')'"
+    global label
+    p[0] = "REPEAT{0}:\n{1}\nNOT\nJZ END{0}\n{2}\nJUMP REPEAT{0}\nEND{0}:".format(label,p[7],p[3])
+    label+=1
+
 def p_Instrucao_Cond(p):
     "Instrucao : if '(' Conds ')' '{' Instrucoes '}'"
     global stackPos
@@ -114,12 +120,10 @@ def p_Cond_different(p):
 
 def p_Atr_id(p):
     "Atr : id '=' Exp"
-    if p[1] not in varDic:
-        global stackPos
-        varDic[p[1]] = stackPos-1
-        p[0] = str(p[3])
-    else:
-        pass
+    global stackPos
+    varDic[p[1]] = stackPos-1
+    p[0] = str(p[3])
+    
 
 def p_decl_Array(p):
     "Atr : array '(' id ',' int ')'"
