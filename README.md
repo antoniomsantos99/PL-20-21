@@ -10,4 +10,3 @@
 |--|--|
 | Tema | GIC/GT  + Compiladores |
 | Nota Final | 16 valores |
-||
